@@ -5,11 +5,11 @@ This is a diagram of the entire kubernetes cluster, complete with NGINX INGRESS 
 
 ![](image.jpg)
 
-File structure-
-|----\Charts 
-|----\Templates
-|----.Helmignore
-|----Values.yaml
+File structure-<br>
+|----\Charts <br>
+|----\Templates<br>
+|----.Helmignore\n<br>
+|----Values.yaml<br>
 |----Chart.yaml
 
 
