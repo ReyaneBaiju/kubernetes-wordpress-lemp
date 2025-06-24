@@ -1,10 +1,17 @@
 **HELM-BASED WORDPRESS LEMP DEPLOYMENT WITH NGINX INGRES CONTROLLER ON GOOGLE KUBERNETES ENGINE (GKE)**
 
-This is the overview diagram of the kubernetes deployment, user ingres and the entire kubernetes cluster-
+This is a diagram of the entire kubernetes cluster, complete with NGINX INGRESS CONTROLLER, Ingress resource, Services, Deployments, PVC, SC, Configmaps and Secrets. The diagram was created using draw.io.
+
+
 ![](image.jpg)
+
 File structure-
-Charts 
-Templates
-.Helmignore
-Values.yaml
-Chart.yaml
+|----\Charts 
+|----\Templates
+|----.Helmignore
+|----Values.yaml
+|----Chart.yaml
+
+
+
+
