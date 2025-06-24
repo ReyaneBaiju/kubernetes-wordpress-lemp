@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: {{ .Values.nodename }}
+      containers:
+        - name: mysql
+          image: mysql:latest
+          ports:
+            - containerPort: 3306
+          resources:
+            requests: 
+              memory: "300Mi"
+              cpu: "200m"
+            limits:
+              memory: "600Mi"
+              cpu: "500m"
+          env:
+            - name: MYSQL_RANDOM_ROOT_PASSWORD
+              value: "1"
+            - name: MYSQL_DATABASE
+              value: {{ .Values.WORDPRESS_DB_NAME }}
+            - name: MYSQL_USER
+              value: {{ .Values.WORDPRESS_DB_USER}}
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef: 
+                  name: dbpassword
+                  key: password
+          volumeMounts:
+            - name: claiming
+              mountPath: /var/lib/mysql/
+      volumes:
+        - name: claiming
+          persistentVolumeClaim:
+            claimName: sqlclaim
+
+
+

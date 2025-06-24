@@ -1,0 +1,12 @@
+namespace: default
+
+WORDPRESS_DB_HOST: sqlsvc:3306
+WORDPRESS_DB_USER: reyan
+WORDPRESS_DB_NAME: wordpress
+
+
+Container:
+  Wordpress: wordpress:6.8.0-php8.3-fpm
+  Nginx: nginx:latest
+
+nodename: gke-cluster-1-default-pool-f5fe533b-4l24
